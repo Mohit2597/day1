@@ -8,3 +8,6 @@ git add .
 git add FILENAME  	
 git status 			
 git commit -m "Message"	
+git log
+git log --format=fuller
+git log --format=raw
