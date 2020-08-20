@@ -1,0 +1,6 @@
+virtualenv SOMENAME 
+cd SOMENAME
+pip freeze
+pip istall django
+django-admin startproject Day1
+python manage.py runserver
