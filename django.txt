@@ -1,6 +1,17 @@
-virtualenv SOMENAME 
-cd SOMENAME
+virtualenv "SOMENAME" 
+cd "SOMENAME"
 pip freeze
 pip istall django
 django-admin startproject Day1
 python manage.py runserver
+python manage.py startapp "APPNAME"
+urlpatterns = [
+	path('',views.home,name='home')
+]
+
+from django.http import HttpResponse
+def home(request):
+	return HttpResponse('Hello, World !')
+path('',include('testapp.urls'))
+#from djnago.urls import path
+#from . import views
