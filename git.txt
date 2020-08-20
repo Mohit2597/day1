@@ -1,0 +1,10 @@
+###install git 
+
+git init
+
+git config --blobal user.name "USERNAME"
+git config --global user.email "EMAIL"
+git add . 			 
+git add FILENAME  	
+git status 			
+git commit -m "Message"	
