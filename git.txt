@@ -15,3 +15,4 @@ git show COMMITID
 git remote add origin https://github.com/Mohit2597/day1.git
 git remote -v
 git remote remove origin
+git push origin master
