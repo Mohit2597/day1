@@ -15,3 +15,26 @@ def home(request):
 path('',include('testapp.urls'))
 #from djnago.urls import path
 #from . import views
+
+
+Create a template folder in BASE_DIR(outside all apps) root directory
+add template in settings file under DIRS
+from pathlib import os
+os.path.join(BASE_DIR,'templates')
+
+view.py call template page
+return render(request,'home.html')
+
+
+views return {,,"DATA"}
+.html {{}}
+
+index.html
+{% blcok contant%}
+	{endblock}
+
+home.html
+{%extends 'index.html'%}
+{%block content%}
+{%endblock%}
+
