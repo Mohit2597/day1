@@ -1,0 +1,160 @@
+#################TERMINAL###############
+
+echo $0
+echo $SHELL
+
+command_name --> option --> argument
+ls -l /etc
+
+f11 maximize the terminal and press again to minimize the terminal
+
+username and servername ~(home_directory)
+$ represents that you're local user 
+
+6 terminal's
+ctrl+alt+(f1-f5)
+
+chvt2
+
+reset
+
+ctrl+l(clear Screen)
+
+gpm(general purpose mouse)
+yum install gpm
+systemctl start gpm
+
+cal--->calander
+cal 5 2016
+
+date
+
+history -c
+cat .bash_history
+
+ctrl+a=start
+ctrl+a=end
+
+
+#################################navigation in terminal############
+cd - (back_command)
+ls -l (d for directory and _ for file )
+ls -lh(huamn readable file size like in bytes kilobytes)
+ls -lhS (sort Order file size)
+ls -lt(sort_by_time)
+ls -a(hidden_files
+ls -d*(files inside files names with d)
+ls -lhr(use r to reverse sort order)
+ls -ln(sory by name)
+##################manageing files in terminal#########################
+\ for space files
+'Mohit Chaudahry'
+"Mohit Chaudhary"
+
+touch ff{1..100}
+mkdir
+touch
+########copy file #####
+cp source destination
+cp file,file,file,file folder
+cp f* folder
+cp -i file,file,file,file folder(it will ask for permissions)
+
+######## remove ######
+rmdir Dir_name (empty Directory only)
+rm -r Dir_name (non-empty)
+rm -rf Dir_name(those who is enable to delete with other commands)
+
+######## move (mv) ####
+mv file folder
+mv file file (if destination is not there it will rename the file)
+cp -r folder folder
+
+mkdir -p f1/f2/f3/f4/f5/
+
+cmp file1 file2(comapare two files)
+comm file1 file2(common b/w two files)
+dir (briefly list directory contents)
+
+tail -n 4 file_name(print last 4 lines of flies)(default print is 10)
+head -n 4 file_name(same as above)
+
+wc filename (word count)
+lines--->word--->character--->filename
+wc -l
+wc -w
+wc -c
+
+less filename(big file page by page)
+file (to check what is it file directory device software daemon)
+touch song{1..4}.mp3 (dictnory can be used anywhere)
+
+grep ---> most important filtering tool to search inside file
+ls grep n*
+
+pwd (print working directory)
+
+locate dirtory(locate directory in location)(if not sudo yum install mlocate && sudo updatedb)
+locate -n 3 passwd
+
+ls -l [fk]* (either starts with f or with k)
+ls -l [!fk]* (except these character)
+ls -l [[:lower:]](any lowecase)
+ls -l [[:upper:]](any uppercase)
+
+command 1 | command 2 (ouput command 1 will replace |)
+
+command 1; command 2 ( run command 1 and then command 2)
+
+
+#################################################################
+whatis man
+
+which to find location
+/usr/share/doc (documentation)
+
+#####################################
+VI editor
+
+exit shift+Z
+:/ newFilename
+
+ls -l > outputFile(overrite)
+ls -l >> outputlFile(add)
+ls -l 2> error outputfile(overwrite)
+ls -l 2>> outputfile(Add)
+
+###############manage local linux users and groups#####################
+yum install system-config-users
+
+useradd username (create uesr)
+userdel username (delete user)
+/etc/passwd
+/etc/shadow
+	username:password:NOD:persmission_NTCP:Max_NOD_TCTP:No_of_warningdays:max_no_of_days_after_password_expire(terminate):no_of_days_for_account_expire
+/etc/login.defs
+	default settings
+/etc/group
+	group_name:/etc/gshadow:G_ID:
+/etc/ghadow
+	same login as user
+/home/username
+
+passwd -l username(lock password)
+passwd -u username(unlock user)
+gpasswd groupname(to change the name of group)
+		
+		 id username
+		 passwd username
+		 UID range 0 root
+		 1-200 system users
+		 201-999 normal users
+tail -2 /etc/passwd
+
+groupadd groupname
+
+
+
+
+
+

@@ -38,3 +38,28 @@ home.html
 {%block content%}
 {%endblock%}
 
+
+urls.py--->views.py--->create_file
+
+urls.py
+	form . import views
+	path('',views.name,name='SOMENAME')
+views.py
+	def name(request):
+	return render(request,'name.html')
+
+method=POST
+{%csrf_token%}
+
+upload files on static folder(under root)
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+STATIC_ROOT=os.path.join(BASE_DIR,'assets')
+
+run terminal command to get static files
+python manage.py collectstatic
+
+{%load static%}
+href={%staticpath%}
+
+
+

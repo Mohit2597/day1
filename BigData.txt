@@ -1,0 +1,24 @@
+1.Estimate the volume of data. the data volume should not only include the current data volume,but it should also expect the data in the future. There are two types of data in the real world: static and non-static data. The volumes of static data, for example national cansus data and human organic data will not change over time. while for nonstatic data, such as streaming log data and social data and social network streaming data, the volumes increases over time.
+2.Estimate the velocity of data. The velocity estimate should include how much data can be genereated within a certain amount of time, for example during a day. For static data, the velocity is zero. The velocity property of Big data defines the speed that data can be genereated. This property will not only effect the volume of data, but also determines how fast a data processing system should handle the data.
+3.Identify the data veriety. In Words, the data variety means the different sources of data, such as web click data, social network data, data in relation databases, and so on.
+Variety means that data differs syntactically or semantically.
+
+
+1. Log in to the administrator machine as admin and change the hostname of the machine with the following command:
+			$hostnamectl set-hostname master
+Also,add a FQDN in hosts file with your own machine FQDN and ip address:
+			$vi /etc/hosts
+							192.168.0.126 master.hadoop.localhost
+2.Hadoop is written in Java, hence before installing apache hadoop we will need to install java first. First of all, you should verify the existance of Java in your system
+			$java -version
+	if you will have java installed on your computer you will get output something like this
+						java version "1.7.0_71" 
+						Java(TM) SE Runtime Environment (build 1.7.0_71-b13) 
+						Java HotSpot(TM) Client VM (build 25.0-b02, mixed mode) 
+ 	if java jdk is not installed in your system, then install the java first in your system
+ 			$yum install java-1.8.0-openjdk
+ 	set Java's home enviourment
+ 			$update-alternatives --config java
+ 	you will see a prompt to enter to keep the current section[+], press enter
+ 	##Set java path in your Enviourment
+ 			
