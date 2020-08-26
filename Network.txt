@@ -1,0 +1,118 @@
+NetWork Card
+	A network interface card (NIC) is neccessary if you connect your red hat linux pc to a local area network(LAN), which is usually an Ethernet network. if you are configuring a server, you certainly want to configure a network card. Red Hat Linux supports a varity of Ethernet network cards. ARCnet and IBM's token ring network are also supported. Check the hardware list on the Red HAT site to see if your NIC is supported. Nearly all NIC's currently in use are supported. 	
+		For any Red Hat Linux PC connected to a network, you need the following information
+		PC hostname
+		domain name of the network 
+		ip address of the pc(if provided by server DHCP server address)
+		gateway address
+		ip address and name servers
+Examining the Network Configureation Files
+	Files to change when setting up a system or moving the system
+	starting up network services
+	starting up network services form the rc scripts
+	other important network configuation files you can find in /etc/sysconfig directory
+
+	Files to Change when setting up a system or moving the system
+		Whenever you set up a system network to work on a new network, either because you have just installed Red At or you'are moving machine from one location to another, a set of files need to be modified to get it working on the new network. 
+
+		Setup your ip address of your network interfaces. Make changes to 
+		/etc/sysconfig/network-scripts/ifcfg-eth0
+				Ethernet Interfaces
+					One of the most common interface file is /etc/sysconfig/network-scripts/ifcfg-eth0, which controlls the first ethernet Network interface card of NIC in the system, in s system with multiple NIC's there are multiple ifcfg-X(where X represents a specific network interface). Because each device has its own configuration file, the administrator can controll how each network interface fucntions individually,
+					The following is the sample of ifcfg-eth0 file for a system using a fixed ip
+
+					DEVICE=eth0           						(NAME OF NIC)
+					BOOTPROTO=none 						(HOW SERVER WILL GET IP ADDRESS) dhcp,static,none
+					ONBOOT=yes									(Everytime when server boots up)
+					TYPE=Ethernet  							(how your machine is connected to the other machines)
+
+
+		Setup hostname of your machine. make changes to 
+		/etc/sysconfig/network
+		/etc/hosts
+
+		Setup default gateway make changes to 
+		/etc/default-route
+
+		set up DNS servers to refrence. Make changes to :
+		/etc/resolv.conf
+
+		Make a local file of hostname IP address mappings. make changes to
+		/etc/hosts
+
+		set up the device order from which hostnames are looked up . make change to 
+		/etc/nsswitch.conf
+
+		Starting up network services form xinetd
+		/etc/xinetd.conf
+
+		the telnet config file in the xinetd.d
+		/etc/xinet.d/telnet
+
+		Starting up network services from the rc scripts
+
+		Other important network configuration files in the /etc/sysconfig directory
+
+		Static-Route
+			netwrok-interfaces net network netmask gw gateway
+		IP TABLES
+		IP CHAINS
+
+		Network Configuration files in /etc/sysconfig/network-scripts
+			ifcfg-networkinterfaceneame
+			IFUP AND IFDOWN
+
+		Managing The init Scripts
+			chckconfig
+
+			usually Red Hat linux starts up in multiuser mode with networking turnedon. these are some of the other runlevels availabel
+			0. halt
+			1. single-user mode
+			2. Multiuser mode, without networking
+			3.full multiusermode 
+			4. Not used
+			5. Full multiuser mode (with X based login Screen)
+			6. reboot
+
+			the system boots into the default runlevel set in
+				/etc/inittab
+
+		Managing the rc Scripts by hand
+				/etc/rc3.d
+				/etc/rc6.d
+
+		Managing rc Scripts using chkconfig
+					to turn a service off or on using chkconfig, use the syntax:
+					chkconfig servicename off|on|reset
+
+					chkconfig wu-ftpd off
+					chkconfig xinetd on
+TCP/IP Explained
+Understand Network Classes
+Setting up network interface Card(NIC)
+Configuring the Network Card
+Configuring the internal Network
+Understand Subnetting
+Interpreting IP numbers
+Before you Subnet Your Network
+	Before you can subnet you network , you need to make some choices and gather some information. 
+	First you need to decide the number of hosts of each of your subnets so you can determine how many IP addresses you need. Earlier in this Chapter you set up an Eternet interface using the reserverd inernal class C netwrok 192.168.1..0 you will continue to use this number ofr the subnetting examle.
+
+	Every IP network has two addresses that cannot be used - the network IP number itself and the broadcast address. whenever you subnetwork the IP network you are creating additional addresses that are unusable. For each subnet you crate. two addresses unusable. the subnet's network IP address and its broadcast address. 
+
+Class InterDomain Routing(CIDR)
+GateWay and Routers
+Configuring Dynamic Host Configuration Protocol(DHCP)
+Configuring the PPP connection(point to Point)
+Configuring PPP server
+CHAP Security
+Configuring a PPP client
+Setting up a PPP connection
+Configuring IP Masquerading
+
+
+THE Network File System(NFS)
+	NFS Overview
+		NFS, the Netwrok file system, is the most common method for providing file sharing serviecs on Linux and Unix Networks. Is is distributed file System that enables lcoal access to remote discks and file systems. Indeed, in a properly designed and implemented NFS enviourment, NFS's operation is totally transparent to clients using remote file system. NFS is also populer file sharing protocol, so NFS clients are available so many non-Unix operating Systems, including the Various Windows versions,MacOS, 
+
+

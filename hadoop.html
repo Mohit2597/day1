@@ -1,0 +1,115 @@
+1. Change the hostname
+2. Create directories for centos installtion
+3. install DHCP AND FTP
+4. Download the centos iso image file 
+5. mount the iso image file
+6. copy all the files to the repo directory
+7. unmount the iso image file
+8. install the iso image file
+
+
+
+DHCP server configuration
+	/etc/dhcp/dhcpd.conf
+
+		#domain name
+
+		#DNS hostname and IP address
+
+		#default lease time
+
+		#maximum lease time
+
+		#declare the Dhcp server to be valid
+
+		#Network address and subnet mask
+			subnet netmask{
+			#range of lease IP addresses, should be based
+
+			#broadcast IP address
+
+			#default gateway
+
+			}
+			sudo service dhcpd start
+			sudo chkconfig dhcpd --level 3 5 on
+			d
+FTP server Configuration
+	https://www.youtube.com/watch?v=W0aX5mPQCxM
+	chroot_local_user=yes
+
+9. Enable the "kickstart" file with the command
+10. enable ssh
+11.Erroneous iptables configuration
+	sudo systemctl stop firewalld
+	sudo systemctl disable firewalld
+	sudo systemctl mask --now firewalld
+	sudo yum install iptables-services
+	sudo systemctl start iptables
+	sudo systemctl start ip6tables
+	sudo systemctl enable iptables
+	sudo systemctl enable ip6tables
+	sudo systemctl status iptables
+	sudo systemctl status ip6tables
+	sudo iptables -nvL
+	sudo ip6tables -nvL
+12.getenforce
+13.java JRE download
+14.install hadoop
+15. configuration
+	core-site.xml
+		<property>
+			<name>fs.defauld.name</name>
+			<value>hdfs://localhost:54310</value>
+		</property>
+
+		<property>
+			<name>mapred.job.tracker</name>
+			<value>localhost:54311</value>
+		</property>
+
+		<property>
+			<name>hadoop.tmp.dir</name>
+			<value>/opt/hadoop/tmp</value>
+		</property>
+	hdfs-site.xml
+		<property>
+			<name>dfs.replication</name>
+			<value>2</value>
+		</property>
+
+		<property>
+			<name>dfs.data.dir</name>
+			<value>/opt/hadoop/data/</value>
+		</property>
+	mapred-site.xml
+		<property>
+
+
+			<value>/opt/hadoop/mapred/</value>
+		</property>
+
+	hadoop namenode -format
+	start-sfs.sh
+	start-mapred.sh
+	jps
+
+
+	File 										Discription
+	hadoop-env.sh 					configures the enviourment variable used by Hadoop
+	core-site.xml 						configures parameters for the whole Hadoop Clustor
+	hdfs-site.xml 						configures parameters for HDFS and its clients
+	mapred-site.xml 				configures parameters for mapreduce and its clients
+	masters									configures host machines for SecondryNamenode
+	slaves										configures a list of slave node hosts
+
+
+
+#####	CONFIGURE HADOOP IN FULLY-DISTRIBUTED MODE ####
+ 
+
+
+
+
+Note :
+	1. alternatively we can use "rsync" to download the image and we can also use wget command to download the image file

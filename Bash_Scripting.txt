@@ -1,0 +1,76 @@
+TOPICS OF BASH SCRIPTING
+	1.Hello Bash Scripting
+	2.Redirect to file
+	3.Comments
+	4.Conditional Statements
+	5.Loops
+	6.Script Input
+	7.Script Output
+	8.Pipes
+	9.Strings Processings
+	10.Numbers and Arithmatics
+	11.Declare command
+	12.Arrays
+	13.Functions
+	14.Files and Directories
+	15.Sending Email Via Script
+	16.Curl in Scripts
+	17.Professional Menus
+	18.Wait for filesSystem Events with inotify
+	19.Introduction to Grep
+	20.Introduction to Awk
+	21.Debugging bash Scripts
+
+	cat /etc/shells
+	which bash
+1. FILENAME = NAME.sh
+		chmod +x Name.sh
+		EXECUTEFILE=./sh
+2. REDIRECT TO FILE
+		cat /etc/shells >redirect.txt
+		cat >>redirect.txt 
+3. COMMENTS
+		# ONE LINE COMMENT
+		: ' EVERYTHING BETWEEN WILL BE COMMENTED OUT '
+		cat <<Screenshot
+		This will be printed on Termincal Screen 
+		Screenshot
+4. CONDITIONAL STATEMENTS
+	&& is for both the true statement
+	|| is for either one of the statement is ture
+
+			if (( Condition ))
+			then
+				echo "Hello,World"
+			elif
+			then
+				echo "Hello World Elseif"
+			else
+				echo "Hello Else"
+			fi
+	Note: statement starts with if and ends with fi, after if we use then , for elseif we use elif and then there must be space (( One Space from both Ends ))
+5. LOOPS
+
+	while/for/untill
+
+	while [[ conditon ]]
+	do 
+		WHATEVER YOU WANTS TODO
+	done
+6. SCRIPT INPUT
+	args=("$@")
+	echo #@
+	echo $@
+								args : this is how you define an array
+								"$@" : to get unlimited no of arguments in array
+								$# : length of array
+								$@ : print array arguments
+    Create read file programme
+7. SCRIPT 	OUTPUT
+	ls -al 1>success.txt 2>error.txt
+	ls -al >& error&success both files are same
+
+8. PIPES (send output from one script to another)
+	export :)
+9. STRINGS PROCESSING
+	
