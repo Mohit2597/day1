@@ -1,0 +1,88 @@
+Configure Local Storage
+list create, delete partitions on MBR(master boot record partition) and GPT(GUID Table Partition) discks
+			MBR
+				sudo bash
+				df -h 												(to list all the disks)
+				blkid												(lists the blocks id)
+				lsblk												(list the blocks of disks)
+				partprobe										(to check any changes made in the disk partiotion or not)
+				fdisk -l 											(format disks information)
+				fdisk /dev/sdb							(disk you wanna change into)
+					m for help
+					n for new partition 
+					e for extended
+					+5G size of volume
+					 p to check new partition table
+					 w to write 
+					 d to delete the partition
+					GPT
+						yum install gdisk
+						gdisk /dev/sdb
+Create and remove physical volumes, assign physical Volumes to Volume groups, and create and delete logincal volumes
+	pvcreate
+	pvdisplay
+	pvremove
+
+		Assign Physical Volumes to Volume Groups
+			fdisk /dev/sdb
+			2 partitions : sdb1 and sdb2
+			 vgcreate NAMEOFGROUP /dev/sdb1
+			 vgs (to list the volume groups)
+			 vgextend vg1 /dev/sdb2
+			 vgreduce vg1 /dev/sdb1
+			 vgremove vg1
+			 vgdisplay
+
+		Create and Delete logincal Volumes
+			pvs (print volume groups)(physical volume group)
+			vgdisplay (to get more information about the volume group)
+			lvcreate -L 5G -n logical1  vg1 (logical volume create -L(size(5G)) -n(name of logical volume(logical1) vg1(volume group name)) 
+			lvs
+			lvdisplay
+			lvextend -L+1G /dev/vg1/logical1
+			lvreduce -L-1G /dev/vg1/logical1
+			lvresize -L-1G /dev/vg1/logical1
+			lvdisplay
+			umount /mnt/logical1
+			lvremove /dev/vg1/logical1
+Configure systems to mount file systems at boot by Universally Unique ID (UUID) or label
+	lvscan
+	mke2fs -t ext4 -j /dev/vg1/logical1
+	echo $?
+	mkdir /logical1
+	mount -t ext4 /dev/vg1/logical1 /logical1
+	df -h
+	vi /etc/fstab
+
+		block device (make entry of absolute path in /etc/fstab)
+			/dev/vg1/logical1		/logical1		ext4		defaults		1 2
+		UUID (make entry of uuid in /etc/fstab)
+			blkid /dev/vg1/logical1
+			vi etc/fstab UUID=64bb9a09-9775-401b-bb94-28445acf09a2
+			umount /logical1
+			mount -a
+			df -h
+		lable (create label and make entry in /etc/fstab)
+			e2label /dev/vg1/logical1 logical_label
+			e2label /dev/vg1/logical1
+			etc/fstab
+			LABEL=logical_label
+Add new partitions and logical volumes, and sawp to a system non-destructively
+
+
+	pdf
+		Disks are generally called /dev/sda. /dev/sdb, etc in physical servers 
+
+	LAB
+		first of all you need to shutdown you server and add a additional disc
+
+	
+	BIOS 
+	MBR
+	GRUB
+	KERNAL
+	INIT
+	RUN LEVELS
+
+
+
