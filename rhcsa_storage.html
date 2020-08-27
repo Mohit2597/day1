@@ -68,6 +68,11 @@ Configure systems to mount file systems at boot by Universally Unique ID (UUID) 
 			etc/fstab
 			LABEL=logical_label
 Add new partitions and logical volumes, and sawp to a system non-destructively
+	mkswap /dev/vg1/logical1
+	swapon /dev/vg1/logical1
+	swapon -s
+	swapoff /dev/vg1/logical1
+	/etc/fstab
 
 
 	pdf
