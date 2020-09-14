@@ -73,4 +73,96 @@ TOPICS OF BASH SCRIPTING
 8. PIPES (send output from one script to another)
 	export :)
 9. STRINGS PROCESSING
+
+
+
+
+
+
+
+
+$ echo "The cost of the item is $15"
+ The cost of the item is 5
+
+
+$echo "The cost of the itme is \$15"
+The cost of the itme is $15
+
+days=10
+guest="katie"
+echo "$guest check in $days days ago"
+days=5
+guest="Mohit"
+echo"$guest check in $days days ago"
+
+#assigning variable value to to the another variable
+value1=10
+value2=$value1
+echo "the resulting value is $value2"
+
+
+
+#Command substitution
+testing=$(date)
+echo "the date and time are :" $testing
+
+
+#redirecting Input and Output
+
+command > outputfile(overwrite)
+command >> outputfile(append)
+
+			###Input Redirection ###
+wc < outputfile
+rpm -qa > rpm_list
+sort < rpm_list
+
+			####Pipes####
+command1 | command 2
+rpm -qa | sort
+ls /dev | sort | head -n 5
+
+		###PERFORMING MATH ####
+expr 1 + 6
+expr 5 \* 2
+
+var1=10
+var2=20
+var3=$(expr $var2 / $var1)
+echo $var3
+
+		####Using brackets
+var1=100
+var2=200
+var3=300
+var4=$[$var1 * ($var2 - $var1)]
+echo $var4
+
+
+
+#### using bc ####
+scale =4
+
+	var1=$(echo "scale:4 3.44 / 5" | bc)
+	echo $var1
+
+### exiting the script 
+
+0			successfull completion of command
+1			General unknown error
+2			Misuse of Shell commnad
+126		The commnad can't execute
+127		command not found
+128		invalid exit argumnet
+128+X	Fatel error with linux signal
+130		commnad terminated with Ctrl+C
+255		exit status out of range
+
+
+working with if-then statement
+
+if command 
+then
+	commands
+fi
 	

@@ -1,0 +1,46 @@
+whois microsoft.com
+nslookup microsoft.com
+dig microsoft.com
+whatweb microsoft.com ##
+whatweb microsoft.com
+theHarvestor 
+theHarvestor -d microsoft.com -l 500 -b goole.com -f myresults.html
+sublist3r
+p0f
+recon-ng
+wireshark
+netdiscover -r 192.168.0.0/24
+nmap -n -sn 192.168.0.0/24
+nbtscan -r 192.168.0.0/24
+nmap -n -F 192.168.0.0/24
+nmap -n -A 192.168.0.0/24
+nmap -n -A -sS -sU 192.168.0.0/24 -oX myscan.xml
+hping3 -h
+hping3 to test firewall
+Explore nmap commands and options
+
+cd /usr/share/nmap/scripts
+
+nmap -n --script=smb-enum-users 192.168.0.1
+
+
+
+apt-get install git
+git clone https://github.com/aboul3la/Sublist3r
+apt update && apt -y install sublist3r
+apt-get install p0f
+  
+msfconsole
+snmp-check
+(nmap, metasploit,snmp-check)
+explore the use of metasploit auxilaary tool
+
+
+(nmap,OpenVAS,Nessus)
+(hydra,medussa,ncrack)
+
+bluto
+dirbuster
+kio
+
+
