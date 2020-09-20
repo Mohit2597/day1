@@ -158,3 +158,97 @@ groupadd groupname
 
 
 
+cat -b file
+cp -pv file1 file2
+
+ls -ltr file
+cp -Rv directory1 directory2
+mkdir -p /mohit/sonu (parent directory structure)
+
+mv (move the content from one location to anthor or to rename the content)
+ls -ld (only the directory details)
+
+df -h
+df -T
+who -r
+who -H
+who -a
+
+
+usermod -c "Mohit Chaudhary" mohit
+
+/etc/passwd/
+/etc/gshadow/
+/etc/group/
+/etc/skel/
+/etc/shadow
+/home/dirname
+/var/mail
+/var/spool/mail
+directories created by root is not owned by the user
+
+
+groupadd marketing
+usermod -a -G marketing amit(add user to group)
+groupdel sales
+userdel -r test(to delete the directory of the user)
+
+Password aging policy
+chage -l pooja
+minday(-m)
+maxday(-M)
+warningday(-W)
+inactive(-I)
+chage -m 2 -M 30 -W 7 -I 5 pooja
+chage usename
+cd /etc/login.defs
+
+
+Controll the permissions 
+chgrp
+chown (change owner)
+
+read =4 
+write=2
+execute=1
+cat /etc/redhat-release
+
+yum install bash completion
+nmcli 
+
+1.check if network manager is running 
+		nmcli -t -f RUNNING general
+#to get general status
+ 		nmcli general
+2. nmcli dev status
+		list all availabe devices
+3.list all available connection
+		nmcli connection show
+4. list all configuration of interface
+		nmcli connection show eth0
+5. check physical device status
+		nmcli dev status
+6. to get hostname
+		nmcli general hostname
+		nmcli general hostname centos.local
+7. crete new ethernet connection and assign ip address
+		nmcli connection add con-name Friday ifname eth0 type ethernet ip4 192.168.0.211/24 gw4 192.168.0.1 ipv4.dns 8.8.8.8 +ipv4.dns 192.168.0.1
+
+
+
+
+
+nmcli 																				ifcfg file									effect
+ipv4.method														BOOTPROTO=none				IPV4 address configured statically
+ipv4.method auto												BOOTPROTO-dhcp				will look for configuration settings from a DHCPv4 server
+ipv4.addresses													IPADDR	=192.168.0.10 		set static IPv4 address network prefix	
+																				PREFIX=24					
+ipv4.gateway														GATEWAY=								set gateway
+ipv4.dns																DNS1=										modidy /etc/resolv.conf to use this nameserver
+ipv4.dns-search													DOMAIN=									modify /etc/relsolv.conf to use this domain in the search
+ipv4.ignore-auto-dns 										PEERDNS=no 						Ignore DNS Server information from the DHCP Server
+connection.autoconnect=yes							ONBOOT=yes						Automatically activate this connection on boot
+connection.id eth0												NAME=eth0							The name of this connection
+connection.interface-name eth0					DEVICE=eth0						the connection is bound to the network with this Interface
+802-3-ethernet.mac-address 						HWADDR=							MAC address
+ipv4.never-default no 										DEFROUTE=yes					Never use defult Gateway
