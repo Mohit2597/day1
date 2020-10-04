@@ -252,3 +252,42 @@ connection.id eth0												NAME=eth0							The name of this connection
 connection.interface-name eth0					DEVICE=eth0						the connection is bound to the network with this Interface
 802-3-ethernet.mac-address 						HWADDR=							MAC address
 ipv4.never-default no 										DEFROUTE=yes					Never use defult Gateway
+
+
+
+localctl set-locale LANG=en_us.utf8
+
+useradd -c Amit\ Chaudhary "amit"               Comment
+usermod -g rambeer mohit								force to add group in user
+usermod -L mohit													lock a user account
+usermod -U mohit													unlock a user account
+usermod -d /home/rambeer	 mohit				change the home direcetory of the user
+usermod -a -g rambeer mohit							add user to a group
+
+groupadd -g 5000 ateam
+parted /dev/sdb mkpart 
+parted /dev/sdb unit s/GB/MB print
+parted /dev/sdb mkpart
+parted /dev/sdb mklabel
+udevadm settle
+systectl daemon-reload
+
+
+vgs (list the volume groups)
+vgcreate Office /dev/sdb1
+vgextend Office /dev/sdb2
+vgdisplay Office
+vgremove vg1
+pvremove /dev/sdb1 /dev/sdb2
+
+
+lvs (print the logical volume )
+lvcreate -L 4G -n logical1 Office
+lvextend -L  +1G /dev/Office/logical1
+lvresize -L -1G /dev/Office/logical1
+lvdisplay /dev/Office/logical1
+lvremove /dev/Office/logical1
+e2label /dev/sdb1 (print the label)
+
+
+pvs (physical volume show)

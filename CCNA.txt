@@ -1,0 +1,87 @@
+1917
+team_8295649508
+
+
+
+Subnetting         sikander saikh 33
+LAN connectivity
+
+
+			router ---- its an internetworking device which connect two or more lan connections
+				Access Layer Router
+				Distribution Layer Router
+				Core Layer Router
+
+				 800 1800 2800 3800 7600 (series routers)
+
+				different kinds of ports
+				LAN 								WAN 										Admin
+				rj45							seriel port 60/26 pins			cosole and auxillery port
+
+
+				Console PORT   cli ----- console cable      rj45 ==> db9 port (9pin port)
+			     Auxillery PORT  ---- remote administration -- rj45 ==> modem db25 rollover cable
+			     telnet
+			            
+			            							rs232 is db port
+			     
+			     Internel components
+
+			     POST ==> Power on self test
+			     ROM  ==> GREP (CISCO IOS)
+			     FLASH ==> store IOS
+			     NVRAM ==> store Permanent Configuration
+			     RAM ==> untill on temporary Configuration
+
+			     BASIC Commands
+			     	MODES
+
+			USER MODE :==>   
+			PRIVILEGED MODE ===> cannot make changes	    `												enable	
+			GLOBAL CONFIGURATION MODE ==> can make changes									configure terminal
+
+
+
+			hostname NOA ===> 
+			assigning password
+				console : 
+				aux :
+				vty line (telnet)  : 
+
+			show version
+			show flash
+			show ip interface brief
+			show version
+
+
+			### enable
+			show startup-config
+			show running
+			enable secret password					encrypted hash(prefrred over the other)
+			enable password								clear text
+			service password-encryption		encrypt all the password
+			copy running-config startup-config
+			write memory										save the configuraton
+			write														save the configuation
+			reload													restart the router
+			erase startup-config							erase the configuration
+
+
+
+
+			line con 0
+			line aux 0
+			line vty 0 4 
+WAN connectivity
+		csv/dsv   channel service unit/Data service unit ====v.35 modem
+		back to back cable (60 pins each side )  ====>>> emulate modem and mux
+
+
+
+Design Topology
+
+
+
+
+
+
